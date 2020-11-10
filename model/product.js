@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const schema = mongoose.Schema
+const mongooseUniqueValidator = require('mongoose-unique-validator')
 
 const product = new schema({
     name: { type: String },
@@ -19,4 +20,5 @@ const product = new schema({
     colorLabel: { type: Object }
 })
 
+product.plugin(mongooseUniqueValidator)
 module.exports = mongoose.model('Product', product)
